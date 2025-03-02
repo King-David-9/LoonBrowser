@@ -8,6 +8,127 @@ Privacy: Blocking trackers and fingerprinting attempts
 Standards Compliance: Support for modern web standards (HTML5, CSS3, ES2022+)
 Cross-platform: Support for Windows, macOS, and Linux
 
+LoonBrowser GitHub Installation Guide
+This guide provides clear instructions for installing LoonBrowser from GitHub for both Windows and Linux/macOS users.
+Prerequisites
+
+Git
+Node.js (LTS version recommended)
+npm (included with Node.js)
+
+Installation Steps
+1. Clone the Repository
+bashCopy# Create a directory for your projects if you don't have one
+mkdir -p ~/projects
+
+# Navigate to your projects directory
+cd ~/projects
+
+# Clone the LoonBrowser repository
+git clone https://github.com/yourusername/LoonBrowser.git
+
+# Navigate to the project directory
+cd LoonBrowser
+2. Install Dependencies
+bashCopy# Install all required dependencies
+npm install
+3. Start the Application
+bashCopy# Start the LoonBrowser application
+npm start
+Platform-Specific Notes
+Windows
+If using Windows Command Prompt or PowerShell:
+Copycd C:\path\to\projects
+git clone https://github.com/yourusername/LoonBrowser.git
+cd LoonBrowser
+npm install
+npm start
+Windows with WSL (Windows Subsystem for Linux)
+If you're using WSL, you'll need to run the application from Windows, not from WSL:
+
+Clone the repository using WSL:
+bashCopycd /mnt/c/path/to/projects
+git clone https://github.com/yourusername/LoonBrowser.git
+
+Then open Command Prompt or PowerShell and run:
+Copycd C:\path\to\projects\LoonBrowser
+npm install
+npm start
+
+
+Linux and macOS
+The general instructions should work without modification. If you encounter permission issues:
+bashCopy# Make sure you have permission to execute scripts
+chmod +x src/main.js
+
+# If you encounter permission issues with npm
+sudo npm install -g npm  # Update npm globally
+Troubleshooting
+Common Issues
+
+"Cannot find module" error:
+
+Verify that you're in the correct directory (the one containing package.json)
+Make sure you've run npm install
+Check if src/main.js exists
+
+
+"Error launching app" or "Cannot find Electron":
+
+Make sure Electron is properly installed: npm install electron --save-dev
+Check if the "main" entry in package.json points to the correct file
+
+
+WSL Display Issues:
+
+Electron applications should be run from Windows, not from WSL
+If you must use WSL, configure X11 forwarding or install VcXsrv
+
+
+Module Not Found Errors:
+
+If specific modules are missing, install them individually:
+
+Copynpm install missing-module-name
+
+
+Project Structure
+The LoonBrowser project has the following structure:
+CopyLoonBrowser/
+├── package.json        # Project configuration and dependencies
+├── src/
+│   ├── main.js         # Main Electron process
+│   ├── index.html      # Main browser UI
+│   └── ...             # Other source files
+├── assets/             # Images, icons, and other assets
+└── ...
+Make sure that you run commands from the root directory (the one containing package.json).
+Building for Distribution
+To build the application for distribution:
+bashCopy# For your current platform
+npm run build
+
+# For specific platforms
+npm run build:win    # Windows
+npm run build:mac    # macOS
+npm run build:linux  # Linux
+The built applications will be available in the dist directory.
+Development vs Production
+This installation guide focuses on setting up LoonBrowser for development. For production use, you should:
+
+Build the application using the build commands
+Distribute the packaged application rather than running from source
+
+Contributing
+If you'd like to contribute to LoonBrowser:
+
+Fork the repository
+Create a feature branch
+Make your changes
+Submit a pull request
+
+Please follow the coding standards and test your changes before submitting.
+
 ## Feature Requirements
 
 ### User Interface
